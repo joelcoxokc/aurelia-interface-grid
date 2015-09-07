@@ -39,70 +39,70 @@
 }
 
 // -- option -- align-items -----------
-[flex-options~="align:start"],
-[layout-options~="align:start"] {
+[flex-options*="align:start"],
+[layout-options*="align:start"] {
   @include ai-option(align, flex-start);
 }
-[flex-options~="align:center"],
-[layout-options~="align:center"] {
+[flex-options*="align:center"],
+[layout-options*="align:center"] {
   @include ai-option(align, center);
 }
-[flex-options~="align:end"],
-[layout-options~="align:end"] {
+[flex-options*="align:end"],
+[layout-options*="align:end"] {
   @include ai-option(align, flex-end);
 }
-[flex-options~="align:baseline"],
-[layout-options~="align:baseline"] {
+[flex-options*="align:baseline"],
+[layout-options*="align:baseline"] {
   @include ai-option(align, baseline);
 }
 
 // -- option -- align-self -----------
-[flex-options~="self:start"],
-[layout-options~="self:start"] {
+[flex-options*="self:start"],
+[layout-options*="self:start"] {
   @include ai-option(self, flex-start);
 }
-[flex-options~="self:center"],
-[layout-options~="self:center"] {
+[flex-options*="self:center"],
+[layout-options*="self:center"] {
   @include ai-option(self, center);
 }
-[flex-options~="self:end"],
-[layout-options~="self:end"] {
+[flex-options*="self:end"],
+[layout-options*="self:end"] {
   @include ai-option(self, flex-end);
 }
-[flex-options~="self:baseline"],
-[layout-options~="self:baseline"] {
+[flex-options*="self:baseline"],
+[layout-options*="self:baseline"] {
   @include ai-option(self, baseline);
 }
 
 // -- option -- justify-çontent -----------
-[flex-options~="justify:start"],
-[layout-options~="justify:start"] {
+[flex-options*="justify:start"],
+[layout-options*="justify:start"] {
   @include ai-option(justify, flex-start);
 }
-[flex-options~="justify:center"],
-[layout-options~="justify:center"] {
+[flex-options*="justify:center"],
+[layout-options*="justify:center"] {
   @include ai-option(justify, center);
 }
-[flex-options~="justify:end"],
-[layout-options~="justify:end"] {
+[flex-options*="justify:end"],
+[layout-options*="justify:end"] {
   @include ai-option(justify, flex-end);
 }
-[flex-options~="justify:around"],
-[layout-options~="justify:around"] {
+[flex-options*="justify:around"],
+[layout-options*="justify:around"] {
   @include ai-option(justify, space-around);
 }
-[flex-options~="justify:between"],
-[layout-options~="justify:between"] {
+[flex-options*="justify:between"],
+[layout-options*="justify:between"] {
   @include ai-option(justify, space-between);
 }
 
 // -- option -- order ------------
-[flex-options~="order:first"],
-[layout-options~="order:first"] {
+[flex-options*="order:first"],
+[layout-options*="order:first"] {
   @include ai-option(order, -1);
 }
-[flex-options~="order:last"],
-[layout-options~="order:last"] {
+[flex-options*="order:last"],
+[layout-options*="order:last"] {
   @include ai-option(order, 1);
 }
 
