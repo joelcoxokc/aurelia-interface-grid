@@ -1,10 +1,13 @@
 
 [flex] {
-  display: block;
+  display: flex;
   position: relative;
   min-height: 1px;
   flex: 1 0 auto;
   @include flex-direction(column);
+  &[block] {
+    display: block;
+  }
 }
 
 [ai-layout] {
