@@ -84,6 +84,7 @@
 }
 
 @mixin ai-option($option, $value) {
+  display: flex;
   @if $option == justify {
     justify-content: $value;
   } @else if $option == align {
