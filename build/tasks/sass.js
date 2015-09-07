@@ -25,7 +25,10 @@ gulp.task('build-sass', function() {
       .pipe(autoprefixer())
       .pipe(sourcemaps.write())
       .pipe(plumber.stop())
-      .pipe(gulp.dest(paths.output))
+      .pipe(gulp.dest(paths.output + '/amd'))
+      .pipe(gulp.dest(paths.output + '/commonjs'))
+      .pipe(gulp.dest(paths.output + '/es6'))
+      .pipe(gulp.dest(paths.output + '/system'))
       .on('error', sass.logError);
 });
 
@@ -35,6 +38,9 @@ gulp.task('deploy-sass', function() {
     .pipe(concat('aurelia-interface-grid.css'))
     .pipe(autoprefixer())
     .pipe(minifycss())
-    .pipe(gulp.dest(paths.output))
+    .pipe(gulp.dest(paths.output + '/amd'))
+    .pipe(gulp.dest(paths.output + '/commonjs'))
+    .pipe(gulp.dest(paths.output + '/es6'))
+    .pipe(gulp.dest(paths.output + '/system'))
     .on('error', sass.logError);
 });
