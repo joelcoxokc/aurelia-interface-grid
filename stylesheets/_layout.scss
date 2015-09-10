@@ -41,8 +41,8 @@
   text-align: center;
   font-weight: bold;
   display: flex;
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
 }
 
 // -- option -- align-items -----------
@@ -114,19 +114,19 @@
 }
 
 [ai-layout]:not([flex]) {
-  margin-left: ($grid-gutter-width / 2);
-  margin-right: ($grid-gutter-width / 2);
-  padding: ($grid-gutter-width / 2) 0;
+  // margin-left: ($grid-gutter-width / 2);
+  // margin-right: ($grid-gutter-width / 2);
+  // padding: ($grid-gutter-width / 2) 0;
   &[fill] {
     height: 100%;
   }
 }
 
 [flex]:not([ai-layout]) {
-  padding-left: ($grid-gutter-width / 2);
-  padding-right: ($grid-gutter-width / 2);
-  padding-bottom: ($grid-gutter-width / 2);
-  padding-top: ($grid-gutter-width / 2);
+  // padding-left: ($grid-gutter-width / 2);
+  // padding-right: ($grid-gutter-width / 2);
+  // padding-bottom: ($grid-gutter-width / 2);
+  // padding-top: ($grid-gutter-width / 2);
 }
 
 @each $breakpoint, $size in $grid-breakpoints {
