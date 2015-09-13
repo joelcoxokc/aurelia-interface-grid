@@ -3,7 +3,7 @@
   display: flex;
   position: relative;
   min-height: 1px;
-  flex: 1 0 auto;
+  flex: 1;
   @include flex-direction(column);
   &[block] {
     display: block;
