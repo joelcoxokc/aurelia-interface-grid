@@ -1,0 +1,120 @@
+$grid-gutter: 16px;
+
+$exts:();
+
+@mixin create-grid-breakpoints($label, $attr, $calc, $media:false) {
+  $attr: if($media, #{$attr}-#{$media}, $attr);
+  [flex*="#{$attr}"] {
+    @extend %#{$label}-base;
+  }
+
+  [flexbox*="flex-row"] {
+    [flex*="#{$attr}"] {
+      @extend %#{$label}-base;
+    }
+  }
+
+  [flexbox*="flex-column"] {
+    [flex*="#{$attr}"] {
+      @extend %#{$label}-base;
+      height: $calc;
+      width: auto;
+    }
+  }
+}
+
+@mixin span-flex($i, $select:false, $media:xs) {
+  $attr: if($select, $select, $i);
+  $percentage: percentage($i / 100);
+  $num: _escape(100 * $attr);
+  $calc: calc(#{$percentage} - #{$grid-gutter});
+  $e: _get($exts, $media $calc);
+  $label: "grid-#{$media}-#{$num}";
+  @if not $e {
+    $exts: _set($exts, $media $calc, $label) !global;
+
+    %#{$label}-base {
+      @include flex(0 0 $calc);
+      width: $calc;
+    }
+  }
+  @if $media == xs {
+    @include create-grid-breakpoints($label, $attr, $calc);
+  }
+  @include create-grid-breakpoints($label, $attr, $calc, $media);
+}
+
+[flex] {
+  @include flex(1);
+  margin: ($grid-gutter / 2);
+}
+
+[flex~="auto"] {
+  @include flex(1 0 auto);
+}
+
+[flexbox] {
+  @extend %flexbox;
+  @include flex-wrap(wrap);
+  padding-left: ($grid-gutter / 2);
+  padding-right: ($grid-gutter / 2);
+  [flexbox] {padding: 0}
+  &[flex] {
+    margin: 0;
+  }
+  & + & {
+    padding-top: 0;
+  }
+
+  &[fill] {
+    height: 100%;
+  }
+  &[no-wrap] {
+    @include flex-wrap(nowrap);
+  }
+
+  &[flexbox~="valign-top"] {@include align-items(flex-start);}
+  &[flexbox~="valign-center"] {@include align-items(center);}
+  &[flexbox~="valign-bottom"] {@include align-items(flex-end);}
+
+  &[flexbox~="halign-right"] {@include justify-content(flex-start);}
+  &[flexbox~="halign-center"] {@include justify-content(center);}
+  &[flexbox~="halign-left"] {@include justify-content(flex-end);}
+}
+
+[flexbox~="flex-row"] {
+  @include flex-direction(row);
+}
+
+[flexbox~="flex-column"] {
+  @include flex-direction(column);
+
+  &[flexbox~="halign-left"] {@include align-items(flex-start);}
+  &[flexbox~="halign-center"] {@include align-items(center);}
+  &[flexbox~="halign-right"] {@include align-items(flex-end);}
+
+  &[flexbox~="valign-top"] {@include justify-content(flex-start);}
+  &[flexbox~="valign-center"] {@include justify-content(center);}
+  &[flexbox~="valign-bottom"] {@include justify-content(flex-end);}
+}
+
+
+
+@each $name, $point in $breakpoints {
+  @include breakpoint($name) {
+    @for $i from 1 through 100 {
+      @if $i >= 10 {
+
+        @if $i == 33 {
+          @include span-flex(33.33333, 33, $media:$name);
+        }
+        @else if $i == 66 {
+          @include span-flex(66.66666, 66, $media:$name);
+        }
+        @else if ($i % 5) == 0  {
+          @include span-flex($i, $media:$name);
+        }
+      }
+    }
+  }
+}
