@@ -12,10 +12,10 @@ var minifycss = require('gulp-minify-css');
 var p = require('path');
 var ai = require('node-ai').ai
 
-gulp.task('build-sass', function() {
+gulp.task('build-build-sass', function() {
   return ai.build({
     input: './stylesheets/index.scss',
-    output: paths.output,
+    output: './stylesheets',
     prefix: true,
     dev: true,
     minify:false,
@@ -23,13 +23,29 @@ gulp.task('build-sass', function() {
   });
 });
 
-gulp.task('deploy-sass', function() {
+gulp.task('build-deploy-sass', function() {
   return ai.build({
     input: './stylesheets/index.scss',
-    output: paths.output,
+    output: './stylesheets',
     prefix: true,
     dev: false,
     minify:true,
     concat: 'ai-grid.css'
   });
+});
+
+gulp.task('deploy-sass', ['build-deploy-sass'], function() {
+  return gulp.src('stylesheets/ai-grid.css')
+    .pipe(gulp.dest(paths.output + 'amd'))
+    .pipe(gulp.dest(paths.output + 'commonjs'))
+    .pipe(gulp.dest(paths.output + 'es6'))
+    .pipe(gulp.dest(paths.output + 'system'));
+});
+
+gulp.task('build-sass', ['build-build-sass'], function() {
+  return gulp.src('stylesheets/ai-grid.css')
+    .pipe(gulp.dest(paths.output + 'amd'))
+    .pipe(gulp.dest(paths.output + 'commonjs'))
+    .pipe(gulp.dest(paths.output + 'es6'))
+    .pipe(gulp.dest(paths.output + 'system'));
 });
