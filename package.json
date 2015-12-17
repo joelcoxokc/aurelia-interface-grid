@@ -57,12 +57,17 @@
       "lib": "dist/amd"
     },
     "dependencies": {
-      "aurelia/interface": "github:aurelia/interface@master"
+      "aurelia-interface": "github:aurelia/interface@master"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
+      "core-js": "npm:core-js@^1.2.6"
+    },
+    "overrides": {
+      "npm:core-js@1.2.6": {
+        "main": "client/shim.min"
+      }
     }
   }
 }
