@@ -7,6 +7,4 @@ exports.configure = configure;
 
 require('./aurelia-interface-grid.css!');
 
-function configure(framework) {
-  framework.globalResources('./flexible');
-}
+function configure(framework) {}

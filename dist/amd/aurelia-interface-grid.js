@@ -6,7 +6,5 @@ define(['exports', './aurelia-interface-grid.css!'], function (exports, _aurelia
   });
   exports.configure = configure;
 
-  function configure(framework) {
-    framework.globalResources('./flexible');
-  }
+  function configure(framework) {}
 });

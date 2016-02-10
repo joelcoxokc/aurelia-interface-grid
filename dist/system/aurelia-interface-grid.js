@@ -3,9 +3,7 @@ System.register(['./aurelia-interface-grid.css!'], function (_export) {
 
   _export('configure', configure);
 
-  function configure(framework) {
-    framework.globalResources('./flexible');
-  }
+  function configure(framework) {}
 
   return {
     setters: [function (_aureliaInterfaceGridCss) {}],
