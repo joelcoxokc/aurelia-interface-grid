@@ -1,4 +1,4 @@
-define(['exports', './aurelia-interface-grid.css!'], function (exports, _aureliaInterfaceGridCss) {
+define(['exports', './ai-grid.css!'], function (exports, _aureliaInterfaceGridCss) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {

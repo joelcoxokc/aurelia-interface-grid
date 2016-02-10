@@ -5,6 +5,6 @@ Object.defineProperty(exports, '__esModule', {
 });
 exports.configure = configure;
 
-require('./aurelia-interface-grid.css!');
+require('./ai-grid.css!');
 
 function configure(framework) {}

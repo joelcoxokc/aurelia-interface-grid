@@ -1,3 +1,3 @@
-import './aurelia-interface-grid.css!';
+import './ai-grid.css!';
 
 export function configure(framework) {}
